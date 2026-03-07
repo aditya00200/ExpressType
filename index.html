@@ -1,83 +1,106 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>expresstype</title>
-    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/18436/18436570.png?semt=ais_hybrid" type="image/x-icon">
+    <title>ExpressType | Pro Typing</title>
     <link rel="stylesheet" href="expresstype.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/18436/18436570.png?semt=ais_hybrid" type="image/x-icon">
 </head>
-<body> 
-<div id="container">
+<body class="theme-dark">
+    <canvas id="bg-canvas"></canvas>
 
-    <div class="titleheading">
-        <div id="title"><img src="https://cdn-icons-png.freepik.com/256/18436/18436570.png?semt=ais_hybrid" style="width:40px; height:40px;"> ExpressType</div>
-        <div class="logo">
-            <ul id="uloflogo">
-                <li id="profileicon" class="actuallogo">👤</li>
-                <li id="settingsicon" class="actuallogo">⚙</li>
+    <div id="outer_container">
+    <div id="container">
+        <header class="titleheading">
+            <div id="title">
+                <img src="https://cdn-icons-png.freepik.com/256/18436/18436570.png?semt=ais_hybrid" alt="Logo">
+                ExpressType
+            </div>
+            <div class="logo">
+                <ul id="uloflogo">
+                    <li id="profileicon" class="actuallogo" onclick="toggleBox('profilebox')">👤</li>
+                    <li id="settingsicon" class="actuallogo" onclick="toggleBox('setting')">⚙</li>
+                </ul>
+            </div>
+        </header>
+
+        <nav>
+            <ul class="middlenav">
+                <li id="btn-short" class="middlenavcontent">short</li>
+                <li id="btn-medium" class="middlenavcontent">medium</li>
+                <li id="btn-long" class="middlenavcontent">long</li>
+                <li class="nav-divider">|</li>
+                <li id="t-15" class="timer-opt">15s</li>
+                <li id="t-30" class="timer-opt">30s</li>
+                <li id="t-60" class="timer-opt">60s</li>
             </ul>
-        </div>
+        </nav>
+
+        <main class="workspace">
+            <div class="stats-header">
+                <div class="stat-item">
+                    <span id="timer-display" class="stat-val">15</span>
+                    <span class="stat-lbl">Time Left</span>
+                </div>
+                <div class="stat-item">
+                    <span id="wpm" class="stat-val">0</span>
+                    <span class="stat-lbl">WPM</span>
+                </div>
+                <div class="stat-item">
+                    <span id="accuracy" class="stat-val">100%</span>
+                    <span class="stat-lbl">Accuracy</span>
+                </div>
+            </div>
+
+            <div id="display-text-container" onclick="focusInput()">
+                <div id="display-text"></div>
+                <input type="text" id="hidden-input" autofocus autocomplete="off">
+            </div>
+
+            <button id="next">Reset / Next &rarr;</button>
+        </main>
     </div>
-    
-    <nav >
-        <ul class="middlenav">
-            <li class="middlenavcontent green" >paragraphs</li>
-            <li   id="separator">|</li>
-            <li id="btn-short" class="middlenavcontent" >short</li>
-            <li id="btn-medium" class="middlenavcontent" >medium</li>
-            <li id="btn-long" class="middlenavcontent" >long</li>
-        </ul>
-    </nav>
-    
-    <div id="speed">
-        Last WPM: 0
     </div>
 
-    <div id="text">
-        Success is not measured by how high you climb, but by how many times you bounce back after hitting the bottom. Every failure teaches you something valuable, every setback builds your resilience, and every challenge is an opportunity to grow stronger and wiser. The journey is just as important as the destination, so embrace each moment with courage and determination.
+    <div id="profilebox" class="modal-box scale-0">
+    <div class="box-head">
+        <h2>Profile</h2>
+        <span class="close-btn" onclick="toggleBox('profilebox')">✖</span>
     </div>
-    <div id="writing" >
-        
-        <span class="cursor"></span>
-    </div>
-    <div id="next">
-        →
-    </div>
-
-</div>
-
-<div id="profilebox" class="scale-0">
-    <div class="profilebox-head">
-        <div class="profilebox-head1">
-            Profile
+    <div class="box-content">
+        <div class="avatar-large" id="avatar-initials">AS</div>
+        <p><strong>Name:</strong> <span id="display-name">Aditya Sharma</span> 
+           <button onclick="editName()" style="background:none; border:none; cursor:pointer; font-size:12px; color:var(--primary); margin-left:5px;">[Edit]</button>
+        </p>
+        <div class="p-stat-row">
+            <div class="p-stat-box"><span id="avg-wpm-display" class="p-stat-val">0</span>Avg WPM</div>
+            <div class="p-stat-box"><span id="peak-wpm-display" class="p-stat-val">0</span>Peak WPM</div>
         </div>
-        <div class="profilebox-head2">
-            ✖
-        </div>
-    </div>
-    <div class="profilebox-content">
-        <p>Creator: Aditya Sharma</p>
-        <p>Age: 19 years</p>
-        <p>Identity: Student</p>
-        <p>Average Speed: 80 WPM</p>
-        <p>Highest Speed: 132 WPM</p>
     </div>
 </div>
 
-<div id="setting" class="scale-0">
-    <div class="settings-head">
-        <div class="settings-head1">
-            Settings
+    <div id="setting" class="modal-box scale-0">
+        <div class="box-head">
+            <h2>Settings</h2>
+            <span class="close-btn" onclick="toggleBox('setting')">✖</span>
         </div>
-        <div class="settings-head2">
-            ✖
+        <div class="box-content">
+            <div class="setting-item">
+                <label>Font Size: <span id="font-val">24px</span></label>
+                <input type="range" id="font-slider" min="16" max="36" value="24">
+            </div>
+            <div class="setting-item">
+                <label>Theme</label>
+                <div class="theme-selector">
+                    <button onclick="setTheme('theme-dark')" class="theme-btn dark"></button>
+                    <button onclick="setTheme('theme-light')" class="theme-btn light"></button>
+                    <button onclick="setTheme('theme-forest')" class="theme-btn forest"></button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="settings-content">
-        <p>yet to come...</p>
-        
-    </div>
-</div>
 
     <script src="expresstype.js"></script>
 </body>
