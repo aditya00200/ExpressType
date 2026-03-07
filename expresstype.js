@@ -96,13 +96,6 @@ function startTimer() {
     }, 1000);
 }
 
-function endGame() {
-    clearInterval(timerInterval);
-    isPlaying = false;
-    inputField.disabled = true;
-    displayText.classList.add('finished');
-}
-
 inputField.addEventListener("input", () => {
     if (!isPlaying && timeLeft > 0 && inputField.value.length > 0) {
         startTimer();
@@ -182,7 +175,7 @@ document.getElementById('font-slider').oninput = function() {
 
 
 let sessionHistory = JSON.parse(localStorage.getItem('typingHistory')) || [];
-let userName = localStorage.getItem('userName') || "Aditya Sharma";
+let userName = localStorage.getItem('userName') || "Guest";
 
 function updateProfileUI() {
     const avgWpm = sessionHistory.length > 0 
@@ -228,3 +221,4 @@ updateProfileUI();
 nextBtn.onclick = init;
 
 init();
+
