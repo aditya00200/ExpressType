@@ -1,39 +1,63 @@
 # ⌨️ ExpressType
 
-**ExpressType** is a fun **typing speed testing website** built using **HTML, CSS, and JavaScript**.  
-Test your typing skills by typing given texts and get an approximate typing speed instantly.
-
----
-
-## 📌 Project Overview
-
-This web application provides a simple interface to measure typing speed.  
-Users can choose from **three types of text**:
-- Short text
-- Medium text
-- Long text  
-
-After typing the text and pressing **Enter**, the app calculates your approximate typing speed.
-
-> ⚠️ Note: Currently optimized for **laptop/desktop**. Mobile responsiveness and advanced features like accuracy checking are not implemented yet.
+**ExpressType** is a modern and minimal **typing speed test web application** designed to help users improve their typing speed, accuracy, and consistency.  
+It provides real-time statistics, customizable test durations, and a clean distraction-free interface.
 
 ---
 
 ## 🚀 Features
 
-- ⌨️ Simple typing speed test
-- 📝 Three text lengths: Short, Medium, Long
-- ⚡ Instant feedback on typing speed
-- 🎨 Clean and minimal UI
-- 🖥️ Designed for laptop/desktop use
+- ⌨️ **Real-time Typing Test**
+  - Displays quotes for users to type
+  - Highlights correct and incorrect characters
+
+- 📊 **Live Statistics**
+  - Words Per Minute (WPM)
+  - Accuracy %
+  - Remaining Time
+
+- ⏱️ **Multiple Timer Options**
+  - 15 seconds
+  - 30 seconds
+  - 60 seconds
+
+- 📝 **Different Text Length Modes**
+  - Short
+  - Medium
+  - Long
+
+- 🎨 **Theme Customization**
+  - Dark Theme
+  - Light Theme
+  - Forest Theme
+
+- 🔠 **Adjustable Font Size**
+
+- 👤 **User Profile**
+  - Custom username
+  - Avatar initials
+  - Average WPM
+  - Peak WPM
+
+- 💾 **Local Storage Support**
+  - Saves username
+  - Stores typing history
+  - Tracks average and best performance
+
+- 🔄 **Reset / Next Test Button**
+  - Instantly start a new typing session
 
 ---
 
 ## 🛠️ Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript
+- **HTML5**
+- **CSS3**
+- **Vanilla JavaScript**
+- **LocalStorage API**
+- **Google Fonts**
+  - Inter
+  - JetBrains Mono
 
 ---
 
@@ -41,43 +65,57 @@ After typing the text and pressing **Enter**, the app calculates your approximat
 
 ```
 ExpressType/
-│── index.html
-│── style.css
-│── script.js
+│
+├── index.html
+├── expresstype.css
+├── expresstype.js
+└── README.md
 ```
 
 ---
 
-## 🎯 How to Use
+## ⚙️ How It Works
 
-1. Open the website in your browser (laptop/desktop recommended).  
-2. Select a text type: Short, Medium, or Long.  
-3. Start typing the displayed text.  
-4. Press **Enter** to see your approximate typing speed.  
-
----
-
-## 🔮 Future Improvements
-
-- Add **mobile responsiveness**
-- Implement **accuracy tracking**
-- Add more settings and customization options
-- Improve UI/UX and performance
+1. A random quote is selected from predefined arrays (short, medium, long).
+2. The quote is rendered character by character.
+3. User input is compared in real-time.
+4. Characters are marked:
+   - Correct
+   - Incorrect
+   - Current typing position
+5. WPM and accuracy are calculated dynamically.
+6. After the timer ends, the session WPM is stored in **localStorage**.
 
 ---
 
-## 🌐 Live Demo
+## 🧠 WPM Calculation
 
-https://express-type-five.vercel.app/
+WPM is calculated using the formula:
 
+```
+WPM = (Correct Characters / 5) / Time in Minutes
+```
+
+Where:
+- **5 characters = 1 word (standard typing metric)**
+
+---
+## 🌟 Future Improvements
+
+- Leaderboard system
+- Multiplayer typing races
+- Custom text upload
+- Sound effects
+- Detailed analytics dashboard
+- Mobile typing optimization
+- User authentication
+
+---
+## 🌐 Live Demo https://express-type-five.vercel.app/
 ---
 
 ## 👨‍💻 Author
 
-**Aditya Sharma**
+Developed by **Aditya Sharma**
 
----
-
-## 📄 License
-
-This project was created for learning and entertainment purposes.
+If you like this project, consider giving it a ⭐ on GitHub!
