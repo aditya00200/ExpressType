@@ -45,11 +45,11 @@ let long_array=[
   "The path to greatness is rarely straight or smooth. Its filled with twists, turns, setbacks, and surprises. Embrace the uncertainty and trust the process. Keep moving forward, learning, adapting, and growing - because the journey itself is the true reward."
 ];
 
-let selectedArray = short_array;
+let selectedArray = medium_array;
 let currentQuote = "";
 let startTime = null;
 let timerInterval = null;
-let maxTime = 15; 
+let maxTime = 30; 
 let timeLeft = maxTime;
 let isPlaying = false;
 let totalCorrectChars = 0; 
