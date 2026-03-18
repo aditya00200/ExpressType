@@ -37,15 +37,9 @@ body {
     /* overflow-x: hidden; */
 }
 
-#outer_container{
-    display:flex;
-    width:100%;
-    align-items:center;
-}
-
 #container { 
     width: 100%; 
-    max-width: 1000px; 
+    /* max-width: 1000px; */
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -114,7 +108,7 @@ nav { display: flex; justify-content: center; margin: 2rem 0; }
     width: 100%;
     max-width: 1000px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 #display-text {
@@ -137,8 +131,8 @@ nav { display: flex; justify-content: center; margin: 2rem 0; }
 .char.incorrect { color: var(--error); background: rgba(255, 71, 87, 0.1); border-radius: 2px; }
 .char.current { 
     border-left: 3px solid var(--primary); 
-    margin-left: 2px; 
-    margin-right: -2px;
+    margin-left: .2px; 
+    margin-right: -.2px;
     animation: caret 0.8s infinite; 
 }
 @keyframes caret { 50% { border-color: transparent; } }
